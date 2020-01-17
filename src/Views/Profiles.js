@@ -14,6 +14,12 @@ class Profiles extends React.Component {
     };
   }
 
+  static navigationOptions = {
+    title: 'PROFILES',
+    headerTintColor: '#7382f4',
+    headerTransparent: true,
+  };
+
   componentDidMount() {
     const {endpoint, profileList} = this.state;
     const socket = socketIOClient(endpoint);
@@ -54,10 +60,10 @@ class Profiles extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: '10%',
   },
   list: {
-    paddingHorizontal: 5,
+    // paddingHorizontal: 5,
     backgroundColor: '#E6E6E6',
   },
   listContainer: {
