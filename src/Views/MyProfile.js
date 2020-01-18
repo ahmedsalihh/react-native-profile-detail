@@ -1,8 +1,6 @@
 import React from 'react';
 import {Dimensions, View, Text, StyleSheet, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/Foundation';
-// import Map from '../Map';
-
 import MapView, {Marker} from 'react-native-maps';
 
 const width = Dimensions.get('window').width;
@@ -84,7 +82,6 @@ class MyProfile extends React.Component {
         <View style={styles.footerCard}>
           <View style={styles.genderView}>
             <Text style={styles.footerHeaderText}>Gender</Text>
-            {/* <Text>{`${profile.gender}`}</Text> */}
             <View style={styles.genderIconView}>
               <Icon
                 name={
@@ -102,20 +99,6 @@ class MyProfile extends React.Component {
             </View>
           </View>
         </View>
-        {/* <Text>Details Screen</Text>
-        <Text>{JSON.stringify(profile)}</Text>
-        <Button
-          title="Go to Details... again"
-          onPress={() => this.props.navigation.push('MyProfile', {profile})}
-        />
-        <Button
-          title="Go to Home"
-          onPress={() => this.props.navigation.navigate('Profiles')}
-        />
-        <Button
-          title="Go back"
-          onPress={() => this.props.navigation.goBack()}
-        /> */}
       </View>
     );
   }

@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     marginTop: '10%',
   },
   list: {
-    // paddingHorizontal: 5,
     backgroundColor: '#E6E6E6',
   },
   listContainer: {
