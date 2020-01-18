@@ -1,5 +1,6 @@
 import React from 'react';
 import {Dimensions, View, Text, StyleSheet, Image} from 'react-native';
+import Icon from 'react-native-vector-icons/Foundation';
 // import Map from '../Map';
 
 import MapView, {Marker} from 'react-native-maps';
@@ -78,11 +79,21 @@ class MyProfile extends React.Component {
             style={styles.map}>
             {this.renderMarker()}
           </MapView>
+          <Text style={styles.locationText}>Location</Text>
         </View>
         <View style={styles.footerCard}>
           <View style={styles.genderView}>
             <Text style={styles.footerHeaderText}>Gender</Text>
-            <Text>{`${profile.gender}`}</Text>
+            {/* <Text>{`${profile.gender}`}</Text> */}
+            <View style={styles.genderIconView}>
+              <Icon
+                name={
+                  profile.gender === 'female' ? 'female-symbol' : 'male-symbol'
+                }
+                size={80}
+                color="#7382f4"
+              />
+            </View>
           </View>
           <View style={styles.ageView}>
             <Text style={styles.footerHeaderText}>Age</Text>
@@ -123,24 +134,35 @@ const styles = StyleSheet.create({
   },
   footerCard: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
     marginTop: '3%',
   },
   map: {
     flex: 1,
-    height: height,
+    height: 100,
     width: width,
+  },
+  locationText: {
+    position: 'absolute',
+    color: '#bfbfea',
+    marginTop: '5%',
+    marginLeft: '5%',
   },
   footerHeaderText: {
     color: '#bfbfea',
     fontSize: 20,
+    fontWeight: 'bold',
   },
-  nameText: {color: '#bfbfea'},
-  nameValue: {color: '#7382f4', fontSize: 20},
+  nameText: {color: '#bfbfea', fontWeight: 'bold'},
+  nameValue: {color: '#7382f4', fontSize: 20, fontWeight: 'bold'},
   genderView: {
     width: '30%',
     paddingLeft: '5%',
+  },
+  genderIconView: {
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   ageView: {
     width: '70%',
@@ -152,6 +174,7 @@ const styles = StyleSheet.create({
   },
   ageText: {
     color: '#bfbfea',
+    fontWeight: 'bold',
   },
   profileAvatar: {
     width: 80,

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 class ProfileCard extends React.Component {
   handlePress = () => {
@@ -17,20 +18,21 @@ class ProfileCard extends React.Component {
             />
           </View>
           <View>
-            <View>
-              <Text>{`${this.props.profile.name.first} , ${this.props.profile.dob.age}`}</Text>
+            <View style={styles.nameTextView}>
+              <Text
+                style={
+                  styles.nameText
+                }>{`${this.props.profile.name.first} , ${this.props.profile.dob.age}`}</Text>
             </View>
           </View>
           <View>
-            <TouchableOpacity onPress={this.handlePress}>
-              <Image
-                source={{
-                  uri:
-                    'https://image.flaticon.com/icons/png/512/130/130884.png',
-                }}
-                style={styles.rightIcon}
-              />
-            </TouchableOpacity>
+            <Icon.Button
+              name="ios-arrow-forward"
+              size={30}
+              color='#bfbfea'
+              backgroundColor=""
+              onPress={this.handlePress}
+            />
           </View>
         </View>
       </View>
@@ -52,11 +54,19 @@ const styles = StyleSheet.create({
     marginBottom: '2%',
   },
   profileAvatar: {
-    width: 50,
-    height: 50,
+    width: 80,
+    height: 80,
     borderRadius: 50,
     marginLeft: '5%',
     marginTop: '3%',
+  },
+  nameTextView: {
+    justifyContent: 'flex-start',
+  },
+  nameText: {
+    color: '#7382f4',
+    fontSize: 15,
+    fontWeight: 'bold',
   },
   rightIcon: {
     width: 20,
